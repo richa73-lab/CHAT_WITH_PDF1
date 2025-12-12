@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PDF RAG Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- LEFT: Upload Section + Logo -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" width="150" />
+      </div>
+
+      <section class="upload-section">
+        <h2>Upload PDF</h2>
+
+        <form id="upload-form">
+          <!-- Custom file input -->
+          <label for="pdf-file" class="file-label">Choose PDF</label>
+          <input type="file" id="pdf-file" accept="application/pdf" required />
+          <p id="file-name">No file chosen</p>
+
+          <button type="submit" id="upload-btn">Upload & Index</button>
+        </form>
+
+        <p id="upload-status"></p>
+      </section>
+    </aside>
+
+    <!-- RIGHT: Navbar + Chat Section -->
+    <main class="main-content">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="nav-center">
+          <h1>PDF RAG Chatbot</h1>
+        </div>
+        <div class="nav-right">
+          <h1>Share</h1>
+        </div>
+      </header>
+
+      <!-- Chat Section -->
+      <section class="chat-section">
+        <div id="chat-window">
+          <!-- Chat messages will appear here -->
+        </div>
+        <form id="chat-form">
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Ask something about the PDF..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Show selected file name below the button
+    const fileInput = document.getElementById('pdf-file');
+    const fileName = document.getElementById('file-name');
+
+    fileInput.addEventListener('change', () => {
+        if(fileInput.files.length > 0){
+            fileName.textContent = fileInput.files[0].name;
+        } else {
+            fileName.textContent = "No file chosen";
+        }
+    });
+  </script>
+</body>
+</html>
