@@ -1,0 +1,12 @@
+# PDF RAG Chatbot
+
+Short description...
+
+## Run locally
+1. create virtualenv: `python -m venv venv`
+2. install: `pip install -r requirements.txt`
+3. create `.env` with GEMINI_API_KEY
+4. run: `python app.py`
+
+## Notes
+- Do not commit `.env`
